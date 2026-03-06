@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00FF41;
+  --color-secondary: #FF00FF;
+  --color-dark: #080808;
+  --font-display: var(--font-display), Impact, sans-serif;
+  --font-mono: var(--font-mono), monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-dark text-white font-mono selection:bg-secondary selection:text-white antialiased overflow-x-hidden;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight uppercase;
+  }
+}
+
+.neo-brutalist-border {
+  box-shadow: 6px 6px 0px 0px var(--color-primary);
+}
+.neo-brutalist-border-fuchsia {
+  box-shadow: 6px 6px 0px 0px var(--color-secondary);
+}
+.glitch-overlay {
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
