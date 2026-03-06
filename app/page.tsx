@@ -1,11 +1,23 @@
+"use client";
+import React from 'react';
 import Image from 'next/image';
 import { Terminal, Box, Shield, Database, AtSign, Network, Webhook, Radio, Cpu } from 'lucide-react';
 
 export default function Home() {
+  const [scrolled, setScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <main className="min-h-screen">
       {/* Header */}
-      <header className="fixed top-0 z-50 w-full border-b-2 border-primary bg-dark/95 backdrop-blur-md">
+      <header className={`fixed top-0 z-50 w-full border-b-2 border-primary backdrop-blur-md transition-colors duration-300 ${scrolled ? 'bg-transparent' : 'bg-dark/95'}`}>
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="flex h-20 items-center justify-between">
             <div className="flex items-center gap-4">
